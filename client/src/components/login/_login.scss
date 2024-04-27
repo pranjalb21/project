@@ -1,0 +1,48 @@
+.login-container {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1rem 4rem;
+
+    .login-image {
+        width: 50%;
+        display: flex;
+        justify-content: right;
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    .signup-img {
+        width: 40rem;
+        opacity: 0.8;
+    }
+
+    .login-form {
+        display: flex;
+        width: 50%;
+        justify-content: left;
+        padding: 4rem;
+        flex-direction: column;
+
+        & h3{
+            color: white;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .form {
+        width: 40rem;
+        border: 0.2rem solid $helper-color;
+        padding: 2rem;
+        border-radius: 1rem;
+        color: $helper-color;
+        font-size: 2rem;
+        height: 25rem;
+    }
+}

@@ -1,0 +1,17 @@
+@import './baseStyle/variables.scss';
+@import './baseStyle/buttons.scss';
+@import './baseStyle/utilities.scss';
+@import './baseStyle/inputs';
+
+
+@import './baseStyle/base';
+
+@import './components/navbar/navbar.scss';
+@import './components/home/home.scss';
+@import './components/register/register.scss';
+@import './components/contact/contact.scss'; 
+@import './components/login/login.scss';
+@import './components/about/about.scss';
+@import './components/pageNotFound/pageNotFound.scss';
+
+

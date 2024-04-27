@@ -1,0 +1,47 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 10rem;
+
+    .heading {
+        width: 100%;
+        color: $helper-color;
+        text-align: center;
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+
+    .leaflet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 5rem;
+        gap: 2rem;
+        
+        .textDetails{
+            color: $btn-color;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            h2{
+                font-size: 2.5rem;
+            }
+        }
+        .image {
+            img {
+                height: 20rem;
+            }
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .goto {
+                display: flex;
+            }
+        }
+    }
+}

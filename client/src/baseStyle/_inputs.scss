@@ -1,0 +1,69 @@
+.input-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    color: $bg-color;
+    margin-bottom: 1rem;
+
+    input {
+        color: $bg-color;
+        height: 4rem;
+        font-size: 2rem;
+        background: transparent;
+        border: none;
+        border-bottom: .2rem solid $bg-color;
+        outline: none;
+        padding: 0 1rem;
+        transition: all .3s;
+    }
+    textarea {
+        color: $bg-color;
+        height: 4rem;
+        font-size: 2rem;
+        background: transparent;
+        border: none;
+        border-bottom: .2rem solid $bg-color;
+        outline: none;
+        padding: 0 1rem;
+        transition: all .3s;
+    }
+
+    input:focus {
+        border-bottom: .2rem solid rgb(113, 243, 113);
+    }
+    textarea:focus {
+        border-bottom: .2rem solid rgb(113, 243, 113);
+    }
+
+    label {
+        padding: 0 1rem;
+        opacity: 0;
+        transform: translateY(-3rem);
+        transition: all 0.3s;
+    }
+    
+    input:focus {
+        &:invalid {
+            border-bottom: .2rem solid rgb(226, 48, 42);
+        }
+    }
+    textarea:focus {
+        &:invalid {
+            border-bottom: .2rem solid rgb(226, 48, 42);
+        }
+    }
+    
+    input:not(:placeholder-shown) ~ label {
+        opacity: 1;
+        color: $helper-color;
+        transform: translateY(0.7rem);
+        font-size: 2rem;
+    }
+    textarea:not(:placeholder-shown) ~ label {
+        opacity: 1;
+        color: $helper-color;
+        transform: translateY(0.7rem);
+        font-size: 2rem;
+    }
+
+}

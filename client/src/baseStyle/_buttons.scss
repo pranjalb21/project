@@ -1,0 +1,32 @@
+.btn{
+    padding: 0.8rem 2rem;
+    outline: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    border: none;
+    border: 0.2rem solid transparent;
+    width: 20rem;
+    transition: all 0.2s;
+}
+
+.btn-primary{
+    background-color: $btn-color;
+    font-size: 1.5rem;
+    &:hover{
+        background-color: $dark-color;
+        color: white;
+        border: 0.2rem solid $helper-color;
+    }
+}
+
+.btn-secondary{
+    font-size: 1.5rem;
+    background-color: $dark-color;
+    border: 0.2rem solid $helper-color;
+    color: white;
+    &:hover{
+        border: 0.2rem solid transparent;
+        background-color: $btn-color;
+        color: $dark-color;
+    }
+}

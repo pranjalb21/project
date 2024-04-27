@@ -1,0 +1,16 @@
+.about-container{
+    text-align: center;
+    font-size: 2rem;
+    color: $helper-color;
+    img{
+        @media screen and (max-width: 1800px) {
+            width: 60vw;
+        }
+        @media screen and (max-width: 1200px) {
+            width: 80vw;
+        }
+        @media screen and (max-width: 900px) {
+            width: 90vw;
+        }
+    }
+}
