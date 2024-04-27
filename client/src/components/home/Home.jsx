@@ -1,7 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { selectLogin } from '../../store/authSlice'
 
 const Home = () => {
+    const selectedLogin = useSelector(selectLogin);
     return (
         <div className='home-container'>
             <div className="heading">
@@ -20,12 +23,13 @@ const Home = () => {
                                 Contact us
                             </button>
                         </NavLink>
-                        <NavLink to={'/register'}>
-                            <button className="btn btn-secondary ls-sm ml-md">
-                                Register
-                            </button>
+                        {selectedLogin ? '':
+                            <NavLink to={'/register'}>
+                                <button className="btn btn-secondary ls-sm ml-md">
+                                    Register
+                                </button>
 
-                        </NavLink>
+                            </NavLink>}
                     </div>
                 </div>
                 <div className="image">

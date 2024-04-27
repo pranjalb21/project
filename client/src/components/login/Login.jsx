@@ -29,8 +29,8 @@ const Login = () => {
                 },
                 body: JSON.stringify(userForm)
             })
+            const res = await result.json();
             if(result.ok){
-                const res = await result.json();
                 setUserForm({
                     email: '',
                     password: ''
@@ -49,10 +49,13 @@ const Login = () => {
                 }))
                 navigate('/');
             }else{
-                toast.error(`Invalid credentials.`)
+                toast.error(res.message)
+                res.extraDetails && res.extraDetails.map(msg=>{
+                    toast.error(msg);
+                })
             }
         } catch (error) {
-            console.log(error);
+            toast.error(`Something went wrong. Please try again.`)
         }
     }
 
