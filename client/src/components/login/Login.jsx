@@ -42,6 +42,7 @@ const Login = () => {
                     }
                 }).then(res => res.json())
                 toast.success(`Login successfull.`)
+                
                 dispatch(userLogin({
                     token: res.token,
                     user: userData
