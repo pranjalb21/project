@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectUser } from '../../store/authSlice';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
     const URL = `http://localhost:5000/contact`;
@@ -40,20 +41,24 @@ const Contact = () => {
                 },
                 body: JSON.stringify(contactForm)
             })
+            const res = await result.json();
             if (result.ok) {
-                const res = await result.json();
                 console.log(res);
                 setContactForm({
                     name: '',
                     email: '',
                     message: ''
                 });
+                toast.success(res.message);
                 navigate('/')
             } else {
-                console.log(result);
+                toast.error(res.message)
+                res.extraDetails && res.extraDetails.map(msg=>{
+                    toast.error(msg);
+                })
             }
         } catch (error) {
-            console.log(error);
+            toast.error(`Something went wrong. Please try again.`)
         }
     }
     return (

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectLogin } from '../../store/authSlice';
+import { toast } from 'react-toastify';
 
 
 const Register = () => {
@@ -16,11 +17,11 @@ const Register = () => {
         confirmPassword: ''
     })
 
-    const handleSubmit = async (e) =>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setUserForm({
             ...userForm,
-            name: userForm.name.trim().split(' ').filter(e=>e!=='').join(' '),
+            name: userForm.name.trim().split(' ').filter(e => e !== '').join(' '),
             email: userForm.email.trim().toLowerCase()
         })
 
@@ -32,7 +33,8 @@ const Register = () => {
                 },
                 body: JSON.stringify(userForm)
             })
-            if(result.ok){
+            const res = await result.json();
+            if (result.ok) {
                 setUserForm({
                     name: '',
                     email: '',
@@ -40,16 +42,20 @@ const Register = () => {
                     password: '',
                     confirmPassword: ''
                 });
+                toast.success(res.message);
                 navigate('/login');
-            }else{
-                console.log(`User already exists.`)
+            } else {
+                toast.error(res.message);
+                res.extraDetails && res.extraDetails.map(msg => {
+                    toast.error(msg);
+                })
             }
         } catch (error) {
-            console.log(error);
+            toast.error(`Something went wrong. Please try again.`)
         }
     }
 
-    const sanitizeNumber = (e) =>{
+    const sanitizeNumber = (e) => {
         const validNumber = e.target.value.replace(/\D/g, "");
         setUserForm({
             ...userForm,
@@ -57,11 +63,11 @@ const Register = () => {
         })
     }
 
-    useEffect(()=>{
-        if(selectedUser){
+    useEffect(() => {
+        if (selectedUser) {
             navigate('/');
         }
-    },[selectedUser])
+    }, [selectedUser])
 
     return (
         <div className='register-container'>
