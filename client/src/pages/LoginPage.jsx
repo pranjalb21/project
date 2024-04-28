@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from '../components/login/Login'
 
-const LoginPage = () => {
+const LoginPage = ({title}) => {
+  useEffect(()=>{
+    document.title =`Bookstore | ${title}` 
+  })
   return (
     <section>
       <Login />

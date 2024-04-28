@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Register from '../components/register/Register'
 
-const RegisterPage = () => {
+const RegisterPage = ({title}) => {
+  useEffect(()=>{
+    document.title =`Bookstore | ${title}` 
+  })
   return (
     <section>
       <Register />

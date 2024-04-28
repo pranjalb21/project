@@ -38,13 +38,13 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/about' element={<AboutPage />} />
-        <Route path='/contact' element={<ContactPage />} />
+        <Route path='/' element={<HomePage title={`Homepage`} />} />
+        <Route path='/about' element={<AboutPage title={`About`} />} />
+        <Route path='/contact' element={<ContactPage title={`Contact`} />} />
         {/* <Route path='/services' element={<ServicePage />} /> */}
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/*' element={<PageNotFoundPage />} />
+        <Route path='/login' element={<LoginPage title={`Login`} />} />
+        <Route path='/register' element={<RegisterPage title={`Register`} />} />
+        <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
 
     </BrowserRouter>
