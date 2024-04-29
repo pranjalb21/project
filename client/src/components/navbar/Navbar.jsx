@@ -13,11 +13,16 @@ const Navbar = () => {
   return (
     <header>
       <div className="container">
-        <NavLink to={'/'} className={({ isActive, isPending }) =>
-          isPending ? "pending navlink" : isActive ? "active navlink" : "navlink"
-        }>
-          <h1> BookStore</h1>
-        </NavLink>
+          <NavLink to={'/'} className={({ isActive, isPending }) =>
+              isPending ? "inactive navlink" : isActive ? "inactive navlink" : " navlink"
+            } >
+        <div className="logo">
+            <img src="./travel-bag.svg" alt="TravelBlog" />
+            <div className="logo-text">
+              <h1>TravellBlog</h1>
+            </div>
+        </div>
+          </NavLink>
         <nav className="navlinks">
           <ul>
             <NavLink to={'/'} className={({ isActive, isPending }) =>
@@ -43,7 +48,7 @@ const Navbar = () => {
             {isLoggedIn ?
               <NavLink to={'/login'} className={({ isActive, isPending }) =>
                 isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
-              }  onClick={handleLogout}>
+              } onClick={handleLogout}>
                 <li> Logout</li>
               </NavLink> :
               <>

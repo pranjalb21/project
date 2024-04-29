@@ -10,6 +10,8 @@ import Navbar from './components/navbar/Navbar';
 import PageNotFoundPage from './pages/PageNotFoundPage';
 import { userLogin } from './store/authSlice';
 import { useDispatch } from 'react-redux';
+import Blog from './components/blog/Blog';
+import BlogForm from './components/blogForm/BlogForm';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,12 +40,14 @@ const App = () => {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='/' element={<HomePage title={`Homepage`} />} />
+        <Route path='/' element={<HomePage title={`Home`} />} />
         <Route path='/about' element={<AboutPage title={`About`} />} />
         <Route path='/contact' element={<ContactPage title={`Contact`} />} />
         {/* <Route path='/services' element={<ServicePage />} /> */}
         <Route path='/login' element={<LoginPage title={`Login`} />} />
         <Route path='/register' element={<RegisterPage title={`Register`} />} />
+        <Route path='/blog/:id' element={<Blog />} title={'Blog'} />
+        <Route path='/blog/new' element={<BlogForm />} title={'New Blog'} />
         <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
 
