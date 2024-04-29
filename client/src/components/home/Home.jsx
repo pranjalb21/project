@@ -15,7 +15,6 @@ const Home = () => {
                     <div className="textDetails">
                         <h2 className='ls-sm'>Lorem ipsum dolor sit amet.</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, perferendis commodi. Perspiciatis, iste? Voluptatem eveniet cumque neque quidem totam, assumenda vitae architecto dolores dicta exercitationem consequuntur laudantium in nihil perferendis, commodi similique saepe nulla blanditiis soluta molestias ad sapiente accusamus!</p>
-                    </div>
                     <div className="goto">
                         <NavLink to={'/contact'}>
 
@@ -30,6 +29,7 @@ const Home = () => {
                                 </button>
 
                             </NavLink>}
+                    </div>
                     </div>
                 </div>
                 <div className="image">

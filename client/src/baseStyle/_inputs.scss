@@ -3,7 +3,7 @@
     flex-direction: column;
     font-size: 2rem;
     color: $bg-color;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 
     input {
         color: $bg-color;
@@ -40,7 +40,13 @@
         opacity: 0;
         transform: translateY(-3rem);
         transition: all 0.3s;
+        z-index: -1;
     }
+    textarea{
+        height: 10rem;
+        background-color: rgba(95, 158, 160, 0.096);
+        resize: none;
+     }
     
     input:focus {
         &:invalid {

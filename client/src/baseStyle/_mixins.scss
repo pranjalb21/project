@@ -1,0 +1,15 @@
+//Media queries
+@mixin respond($breakpointName){
+    @if $breakpointName == phone {
+        @media (max-width: 37.5em){ @content }; //600px
+    }
+    @if $breakpointName == tab-port {
+        @media (max-width: 56.25em){ @content }; //900px
+    }
+    @if $breakpointName == tab-land {
+        @media (max-width: 75em){ @content }; //1200px
+    }
+    @if $breakpointName == big-desktop {
+        @media (min-width: 112.5em){ @content }; //1800px
+    }
+}

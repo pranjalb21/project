@@ -25,33 +25,37 @@ const Register = () => {
             email: userForm.email.trim().toLowerCase()
         })
 
-        try {
-            const result = await fetch(URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8'
-                },
-                body: JSON.stringify(userForm)
-            })
-            const res = await result.json();
-            if (result.ok) {
-                setUserForm({
-                    name: '',
-                    email: '',
-                    phone: '',
-                    password: '',
-                    confirmPassword: ''
-                });
-                toast.success(res.message);
-                navigate('/login');
-            } else {
-                toast.error(res.message);
-                res.extraDetails && res.extraDetails.map(msg => {
-                    toast.error(msg);
+        if(userForm.password === userForm.confirmPassword){
+            try {
+                const result = await fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json; charset=UTF-8'
+                    },
+                    body: JSON.stringify(userForm)
                 })
+                const res = await result.json();
+                if (result.ok) {
+                    setUserForm({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        password: '',
+                        confirmPassword: ''
+                    });
+                    toast.success(res.message);
+                    navigate('/login');
+                } else {
+                    toast.error(res.message);
+                    res.extraDetails && res.extraDetails.map(msg => {
+                        toast.error(msg);
+                    })
+                }
+            } catch (error) {
+                toast.error(`Something went wrong. Please try again.`)
             }
-        } catch (error) {
-            toast.error(`Something went wrong. Please try again.`)
+        }else{
+            toast.error(`Password and confirm password not matching.`);
         }
     }
 

@@ -2,6 +2,7 @@
 @import './baseStyle/buttons.scss';
 @import './baseStyle/utilities.scss';
 @import './baseStyle/inputs';
+@import './baseStyle/mixins.scss';
 
 
 @import './baseStyle/base';
@@ -12,6 +13,9 @@
 @import './components/contact/contact.scss'; 
 @import './components/login/login.scss';
 @import './components/about/about.scss';
+@import './components/userHome/userHome.scss';
+@import './components/blog/blog.scss';
+@import './components/blogForm/blogForm.scss';
 @import './components/pageNotFound/pageNotFound.scss';
 
 
