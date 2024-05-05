@@ -12,6 +12,7 @@ import { userLogin } from './store/authSlice';
 import { useDispatch } from 'react-redux';
 import Blog from './components/blog/Blog';
 import BlogForm from './components/blogForm/BlogForm';
+import BlogFormPage from './pages/BlogFormPage';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -46,8 +47,8 @@ const App = () => {
         {/* <Route path='/services' element={<ServicePage />} /> */}
         <Route path='/login' element={<LoginPage title={`Login`} />} />
         <Route path='/register' element={<RegisterPage title={`Register`} />} />
-        <Route path='/blog/:id' element={<Blog />} title={'Blog'} />
-        <Route path='/blog/new' element={<BlogForm />} title={'New Blog'} />
+        <Route path='/blog/:id' element={<Blog  title={'Blog'}/>} />
+        <Route path='/blog/new' element={<BlogFormPage  title={'New Blog'}/>} />
         <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
 

@@ -122,6 +122,9 @@
     color: #99b9ff;
     transform: translateY(0.7rem);
     font-size: 2rem; }
+  .input-text input[type="file"] + label {
+    z-index: 2;
+    border-bottom: 0.2rem solid #99b9ff; }
 
 * {
   margin: 0;
