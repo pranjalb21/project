@@ -72,4 +72,11 @@
         font-size: 2rem;
     }
 
+    input[type="file"]{
+        & + label{
+            z-index: 2;
+            border-bottom: 0.2rem solid $helper-color;
+        }
+    }
+
 }

@@ -1,15 +1,19 @@
 const { default: mongoose } = require("mongoose");
 const Blog = require("../models/blogModel")
+const upload = require('../middlewares/imageUploadMiddleware')
 
 const AddBlog = async (req, res) => {
-    const { userId, title, image, description } = req.body;
-    const newUserId = new mongoose.Types.ObjectId(userId)
     try {
-        const result = await Blog.create({ userId: newUserId, title, image, description });
-        res.status(201).send({ message: `Blog has been posted successfully.`, data: result })
+        const { userId, title, image, description } = req.body
+        const result = await Blog.create({ userId, title, image, description });
+        if (result) {
+            res.status(201).send({ message: `Blog has been posted successfully.`, blog: result });
+        } else {
+            res.status(400).send({ message: `Something went wrong. Please try again.` });
+        }
     } catch (error) {
-        console.log(error)
-        res.status(400).send(`Something went wrong. Please try again.`)
+        res.status(400).send({ message: `Something went wrong. Please try again.` });
+
     }
 }
 
@@ -26,8 +30,13 @@ const GetAllBlog = async (req, res) => {
     }
 }
 
-const UploadImage = async (req, res) =>{
-    res.status(201).send(req.file.filename);
+const UploadImage = async (req, res) => {
+    if (req.file) {
+        res.status(201).send(req.file.filename);
+    } else {
+        res.status(400).send({ message: `Please select an image for upload.` });
+
+    }
 }
 
 module.exports = { AddBlog, GetAllBlog, UploadImage }
