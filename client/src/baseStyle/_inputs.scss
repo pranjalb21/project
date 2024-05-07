@@ -2,27 +2,25 @@
     display: flex;
     flex-direction: column;
     font-size: 2rem;
-    color: $bg-color;
+    color: $text-color;
     margin-bottom: 3rem;
 
     input {
-        color: $bg-color;
         height: 4rem;
         font-size: 2rem;
         background: transparent;
         border: none;
-        border-bottom: .2rem solid $bg-color;
+        border-bottom: .2rem solid $text-color;
         outline: none;
         padding: 0 1rem;
         transition: all .3s;
     }
     textarea {
-        color: $bg-color;
         height: 4rem;
         font-size: 2rem;
         background: transparent;
         border: none;
-        border-bottom: .2rem solid $bg-color;
+        border-bottom: .2rem solid $text-color;
         outline: none;
         padding: 0 1rem;
         transition: all .3s;
@@ -61,13 +59,13 @@
     
     input:not(:placeholder-shown) ~ label {
         opacity: 1;
-        color: $helper-color;
+        color: $text-color;
         transform: translateY(0.7rem);
         font-size: 2rem;
     }
     textarea:not(:placeholder-shown) ~ label {
         opacity: 1;
-        color: $helper-color;
+        color: $text-color;
         transform: translateY(0.7rem);
         font-size: 2rem;
     }
@@ -75,7 +73,7 @@
     input[type="file"]{
         & + label{
             z-index: 2;
-            border-bottom: 0.2rem solid $helper-color;
+            border-bottom: 0.2rem solid $text-color;
         }
     }
 

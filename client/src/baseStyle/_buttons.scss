@@ -1,4 +1,4 @@
-.btn{
+.btn {
     padding: 0.8rem 2rem;
     outline: none;
     cursor: pointer;
@@ -9,24 +9,26 @@
     transition: all 0.2s;
 }
 
-.btn-primary{
-    background-color: $btn-color;
+.btn-primary {
+    background-color: $button-color;
     font-size: 1.5rem;
-    &:hover{
-        background-color: $dark-color;
-        color: white;
-        border: 0.2rem solid $helper-color;
+
+    &:hover {
+        background-color: $button-active-color;
+        color: $button-text-color;
+        border: 0.2rem solid $button-text-color;
     }
 }
 
-.btn-secondary{
+.btn-secondary {
     font-size: 1.5rem;
-    background-color: $dark-color;
-    border: 0.2rem solid $helper-color;
+    background-color: $button-color;
+    border: 0.2rem solid $text-color;
     color: white;
-    &:hover{
-        border: 0.2rem solid transparent;
-        background-color: $btn-color;
-        color: $dark-color;
+
+    &:hover {
+        background-color: $button-active-color;
+        color: $button-text-color;
+        border: 0.2rem solid $button-text-color;
     }
 }

@@ -3,13 +3,13 @@
     flex-direction: column;
 
     h1{
-        color: $helper-color;
+        color: $text-color;
         font-size: 3rem;
         text-align: center;
     }
 
     .contact-form{
-        border: 0.2rem solid $helper-color;
+        border: 0.2rem solid $text-color;
         padding: 2rem;
         border-radius: 1rem;
 

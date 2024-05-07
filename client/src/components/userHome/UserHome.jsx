@@ -11,7 +11,7 @@ const UserHome = () => {
     const selectedBlogs = useSelector(selectBlogs);
     const getblog = async () => {
 
-        const result = await axios(GET_BLOGS);
+        const result = await axios.get(GET_BLOGS).catch(err=>console.log(err));
         dispatch(getAllBlogs(result.data.data))
 
     }
@@ -26,7 +26,7 @@ const UserHome = () => {
                 <Link to={"/blog/new"} className='addPost'><IoIosAddCircle className='icon' /></Link>
             </div>
             <div className='post-container'>
-                {selectedBlogs.map((post,index) => (
+                {selectedBlogs ? selectedBlogs.map((post,index) => (
                     <div className="post" key={index}>
                         <div className="post-image">
                                 <img src={post.image} alt="Post Image" />
@@ -45,7 +45,7 @@ const UserHome = () => {
                             </Link>
                         </div>
                     </div>
-                ))}
+                )):<p>No blogs to show...</p>}
 
             </div>
         </div>

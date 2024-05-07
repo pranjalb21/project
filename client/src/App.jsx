@@ -13,10 +13,14 @@ import { useDispatch } from 'react-redux';
 import Blog from './components/blog/Blog';
 import BlogForm from './components/blogForm/BlogForm';
 import BlogFormPage from './pages/BlogFormPage';
+import DashboardPage from './pages/DashboardPage';
+import MyProfile from './components/userDashboard/MyProfile';
+import MyBlogs from './components/userDashboard/MyBlogs';
+import MyFavourite from './components/userDashboard/MyFavourite';
 
 const App = () => {
   const dispatch = useDispatch();
-  const fetchUser = async ()=>{
+  const fetchUser = async () => {
     if (localStorage.getItem('token')) {
       try {
         const userData = await fetch(`http://localhost:5000/api/auth/user`, {
@@ -29,7 +33,7 @@ const App = () => {
           token: localStorage.getItem('token'),
           user: userData
         }))
-      }catch(err){
+      } catch (err) {
         console.log(err)
       }
     }
@@ -47,8 +51,13 @@ const App = () => {
         {/* <Route path='/services' element={<ServicePage />} /> */}
         <Route path='/login' element={<LoginPage title={`Login`} />} />
         <Route path='/register' element={<RegisterPage title={`Register`} />} />
-        <Route path='/blog/:id' element={<Blog  title={'Blog'}/>} />
-        <Route path='/blog/new' element={<BlogFormPage  title={'New Blog'}/>} />
+        <Route path='/blog/:id' element={<Blog title={'Blog'} />} />
+        <Route path='/blog/new' element={<BlogFormPage title={'New Blog'} />} />
+        <Route path='/dashboard' element={<DashboardPage title={'Dashboard'} />}>
+          <Route path='profile' element={<MyProfile title={'Profile'} />} />
+          <Route path='favourites' element={<MyFavourite title={'Favourites'} />} />
+          <Route path='blogs' element={<MyBlogs title={'Blogs'} />} />
+        </Route>
         <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
 

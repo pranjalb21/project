@@ -13,16 +13,16 @@ const Navbar = () => {
   return (
     <header>
       <div className="container">
-          <NavLink to={'/'} className={({ isActive, isPending }) =>
-              isPending ? "inactive navlink" : isActive ? "inactive navlink" : " navlink"
-            } >
-        <div className="logo">
+        <NavLink to={'/'} className={({ isActive, isPending }) =>
+          isPending ? "inactive navlink" : isActive ? "inactive navlink" : " navlink"
+        } >
+          <div className="logo">
             <img src="./travel-bag.svg" alt="TravelBlog" />
             <div className="logo-text">
               <h1>TravellBlog</h1>
             </div>
-        </div>
-          </NavLink>
+          </div>
+        </NavLink>
         <nav className="navlinks">
           <ul>
             <NavLink to={'/'} className={({ isActive, isPending }) =>
@@ -46,11 +46,18 @@ const Navbar = () => {
               <li>Services</li>
             </NavLink> */}
             {isLoggedIn ?
-              <NavLink to={'/login'} className={({ isActive, isPending }) =>
-                isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
-              } onClick={handleLogout}>
-                <li> Logout</li>
-              </NavLink> :
+              <>
+                <NavLink to={'/dashboard'} className={({ isActive, isPending }) =>
+                  isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
+                }>
+                  <li>My Dashboard</li>
+                </NavLink>
+                <NavLink to={'/login'} className={({ isActive, isPending }) =>
+                  isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
+                } onClick={handleLogout}>
+                  <li> Logout</li>
+                </NavLink>
+              </> :
               <>
                 <NavLink to={'/login'} className={({ isActive, isPending }) =>
                   isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"

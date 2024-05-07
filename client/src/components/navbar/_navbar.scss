@@ -24,7 +24,7 @@ header{
             h1{
                 display: inline-block;
                 align-self: center;
-                color: $helper-color;
+                color: $text-color;
             }
         }
         .inactive{
@@ -34,15 +34,15 @@ header{
         
         .navlink{
             text-decoration: none;
-            color: $helper-color;
+            color: $text-color;
             border-bottom: 0.2rem solid transparent;
             transition: all 0.3s;
         }
         
         .active{ 
-            color: $bg-color;
+            color: $text-color;
             text-decoration: none;
-            border-bottom: 0.2rem solid $bg-color;
+            border-bottom: 0.2rem solid $text-color;
         }
 
         .navlinks{

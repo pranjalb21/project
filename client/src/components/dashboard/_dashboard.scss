@@ -1,0 +1,76 @@
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    @include respond(tab-land) {
+        flex-direction: row;
+    }
+
+    @include respond(tab-port) {
+        flex-direction: column;
+    }
+
+}
+
+.dashboard-nav {
+    display: flex;
+
+    .navlink p{
+        text-decoration: none;
+        color: $text-color;
+        transition: all 0.3s;
+    }
+    
+    .active p{
+        background-color: $text-active-color;
+        text-decoration: none;
+        color: $bg-color;
+    }
+    @include respond(big-desktop) {
+        flex-direction: column;
+
+        :not(:last-child) {
+            border-bottom: 0.2rem solid grey;
+        }
+    }
+
+    @include respond(tab-land) {
+        flex-direction: column;
+
+        :not(:last-child) {
+            border-bottom: 0.2rem solid grey;
+        }
+    }
+
+    @include respond(tab-port) {
+        flex-direction: row;
+
+        :not(:last-child) {
+            border-right: 0.2rem solid rgba(128, 128, 128, 0.3);
+            border-bottom: none;
+        }
+    }
+    
+
+    & p {
+        display: inline-block;
+        background-color: $bg-color;
+        padding: 1rem 2rem;
+        font-size: 2rem;
+        width: 15rem;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0.1rem 0.1rem 0.2rem $text-color;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $text-active-color;
+            color: $bg-color;
+        }
+    }
+}
+.dashboard-content{
+    border: 0.1rem solid $text-color;
+    width: 100%;
+}

@@ -1,3 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%;
+  height: 100vh; }
+
+body {
+  background-color: #F5F7FF;
+  height: 100%;
+  font-family: "Nunito", sans-serif; }
+
+header {
+  height: 20%; }
+
+section {
+  height: 70%; }
+
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem !important; }
+
 .btn {
   padding: 0.8rem 2rem;
   outline: none;
@@ -9,22 +33,22 @@
   transition: all 0.2s; }
 
 .btn-primary {
-  background-color: #646cff;
+  background-color: #4747A1;
   font-size: 1.5rem; }
   .btn-primary:hover {
-    background-color: #1D2537;
-    color: white;
-    border: 0.2rem solid #99b9ff; }
+    background-color: #5050B2;
+    color: #ffffff;
+    border: 0.2rem solid #ffffff; }
 
 .btn-secondary {
   font-size: 1.5rem;
-  background-color: #1D2537;
-  border: 0.2rem solid #99b9ff;
+  background-color: #4747A1;
+  border: 0.2rem solid #1F1F1F;
   color: white; }
   .btn-secondary:hover {
-    border: 0.2rem solid transparent;
-    background-color: #646cff;
-    color: #1D2537; }
+    background-color: #5050B2;
+    color: #ffffff;
+    border: 0.2rem solid #ffffff; }
 
 .ls-sm {
   letter-spacing: 0.1rem; }
@@ -72,25 +96,23 @@
   display: flex;
   flex-direction: column;
   font-size: 2rem;
-  color: #f4f3ff;
+  color: #1F1F1F;
   margin-bottom: 3rem; }
   .input-text input {
-    color: #f4f3ff;
     height: 4rem;
     font-size: 2rem;
     background: transparent;
     border: none;
-    border-bottom: 0.2rem solid #f4f3ff;
+    border-bottom: 0.2rem solid #1F1F1F;
     outline: none;
     padding: 0 1rem;
     transition: all .3s; }
   .input-text textarea {
-    color: #f4f3ff;
     height: 4rem;
     font-size: 2rem;
     background: transparent;
     border: none;
-    border-bottom: 0.2rem solid #f4f3ff;
+    border-bottom: 0.2rem solid #1F1F1F;
     outline: none;
     padding: 0 1rem;
     transition: all .3s; }
@@ -114,40 +136,17 @@
     border-bottom: 0.2rem solid #e2302a; }
   .input-text input:not(:placeholder-shown) ~ label {
     opacity: 1;
-    color: #99b9ff;
+    color: #1F1F1F;
     transform: translateY(0.7rem);
     font-size: 2rem; }
   .input-text textarea:not(:placeholder-shown) ~ label {
     opacity: 1;
-    color: #99b9ff;
+    color: #1F1F1F;
     transform: translateY(0.7rem);
     font-size: 2rem; }
   .input-text input[type="file"] + label {
     z-index: 2;
-    border-bottom: 0.2rem solid #99b9ff; }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
-
-html {
-  font-size: 62.5%;
-  height: 100vh; }
-
-body {
-  background-color: #1D2537;
-  height: 100%; }
-
-header {
-  height: 20%; }
-
-section {
-  height: 70%; }
-
-.toastBody {
-  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
-  font-size: 1.2rem !important; }
+    border-bottom: 0.2rem solid #1F1F1F; }
 
 header .container {
   width: 100vw;
@@ -170,19 +169,19 @@ header .container {
     header .container .logo h1 {
       display: inline-block;
       align-self: center;
-      color: #99b9ff; }
+      color: #1F1F1F; }
   header .container .inactive {
     text-decoration: none;
     border-bottom: 0.2rem solid transparent; }
   header .container .navlink {
     text-decoration: none;
-    color: #99b9ff;
+    color: #1F1F1F;
     border-bottom: 0.2rem solid transparent;
     transition: all 0.3s; }
   header .container .active {
-    color: #f4f3ff;
+    color: #1F1F1F;
     text-decoration: none;
-    border-bottom: 0.2rem solid #f4f3ff; }
+    border-bottom: 0.2rem solid #1F1F1F; }
   header .container .navlinks {
     align-self: center; }
   header .container h1 {
@@ -206,7 +205,7 @@ header .container {
   max-height: 90%; }
   .home-container .heading {
     width: 100%;
-    color: #99b9ff;
+    color: #1F1F1F;
     text-align: center; }
     .home-container .heading h1 {
       font-size: 3rem; }
@@ -216,7 +215,7 @@ header .container {
     padding: 5rem;
     gap: 2rem; }
     .home-container .leaflet .textDetails {
-      color: #646cff;
+      color: #1F1F1F;
       font-size: 1.5rem;
       margin-bottom: 2rem; }
       .home-container .leaflet .textDetails h2 {
@@ -256,17 +255,17 @@ header .container {
     padding: 4rem;
     flex-direction: column; }
     .register-container .register-form h3 {
-      color: white;
+      color: #1F1F1F;
       font-size: 2.5rem;
       text-transform: uppercase;
       text-align: left;
       margin-bottom: 1rem; }
   .register-container .form {
     width: 40rem;
-    border: 0.2rem solid #99b9ff;
+    border: 0.2rem solid #1F1F1F;
     padding: 2rem;
     border-radius: 1rem;
-    color: #99b9ff;
+    color: #1F1F1F;
     font-size: 2rem;
     height: 45rem; }
 
@@ -274,11 +273,11 @@ header .container {
   display: flex;
   flex-direction: column; }
   .contact-container h1 {
-    color: #99b9ff;
+    color: #1F1F1F;
     font-size: 3rem;
     text-align: center; }
   .contact-container .contact-form {
-    border: 0.2rem solid #99b9ff;
+    border: 0.2rem solid #1F1F1F;
     padding: 2rem;
     border-radius: 1rem; }
   .contact-container .contact-area {
@@ -313,24 +312,24 @@ header .container {
     padding: 4rem;
     flex-direction: column; }
     .login-container .login-form h3 {
-      color: white;
+      color: #1F1F1F;
       font-size: 2.5rem;
       text-transform: uppercase;
       text-align: left;
       margin-bottom: 1rem; }
   .login-container .form {
     width: 40rem;
-    border: 0.2rem solid #99b9ff;
+    border: 0.2rem solid #1F1F1F;
     padding: 2rem;
     border-radius: 1rem;
-    color: #99b9ff;
+    color: #1F1F1F;
     font-size: 2rem;
     height: 25rem; }
 
 .about-container {
   text-align: center;
   font-size: 2rem;
-  color: #99b9ff; }
+  color: #1F1F1F; }
   @media screen and (max-width: 1800px) {
     .about-container img {
       width: 60vw; } }
@@ -341,11 +340,15 @@ header .container {
     .about-container img {
       width: 90vw; } }
 
+.userHome-container p {
+  color: #1F1F1F;
+  font-size: 2rem; }
+
 .userHome-container .heading {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  color: #99b9ff;
+  color: #1F1F1F;
   font-size: 2rem; }
   .userHome-container .heading h1 {
     display: inline-block;
@@ -353,7 +356,7 @@ header .container {
   .userHome-container .heading .addPost {
     display: flex;
     text-decoration: none;
-    color: #99b9ff;
+    color: #1F1F1F;
     font-size: 2.5rem;
     align-self: center; }
     .userHome-container .heading .addPost .icon {
@@ -366,11 +369,11 @@ header .container {
   gap: 2rem;
   padding: 2rem; }
   .userHome-container .post-container .post {
-    border: 0.2rem solid #99b9ff;
+    border: 0.2rem solid #1F1F1F;
     border-radius: 1rem;
     overflow: hidden;
     width: 32rem;
-    color: #99b9ff;
+    color: #1F1F1F;
     transition: all 0.2s;
     backface-visibility: hidden; }
     .userHome-container .post-container .post:hover {
@@ -393,7 +396,7 @@ header .container {
   .blogform-container h1 {
     font-size: 3rem;
     text-transform: capitalize;
-    color: #99b9ff;
+    color: #1F1F1F;
     text-align: center;
     margin-bottom: 3rem; }
   .blogform-container .blogform {
@@ -401,6 +404,87 @@ header .container {
     align-self: center; }
     .blogform-container .blogform textarea {
       height: 10rem; }
+
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media (max-width: 75em) {
+    .dashboard-container {
+      flex-direction: row; } }
+  @media (max-width: 56.25em) {
+    .dashboard-container {
+      flex-direction: column; } }
+
+.dashboard-nav {
+  display: flex; }
+  .dashboard-nav .navlink p {
+    text-decoration: none;
+    color: #1F1F1F;
+    transition: all 0.3s; }
+  .dashboard-nav .active p {
+    background-color: #4B49AC;
+    text-decoration: none;
+    color: #F5F7FF; }
+  @media (max-width: 112.5em) {
+    .dashboard-nav {
+      flex-direction: column; }
+      .dashboard-nav :not(:last-child) {
+        border-bottom: 0.2rem solid grey; } }
+  @media (max-width: 75em) {
+    .dashboard-nav {
+      flex-direction: column; }
+      .dashboard-nav :not(:last-child) {
+        border-bottom: 0.2rem solid grey; } }
+  @media (max-width: 56.25em) {
+    .dashboard-nav {
+      flex-direction: row; }
+      .dashboard-nav :not(:last-child) {
+        border-right: 0.2rem solid rgba(128, 128, 128, 0.3);
+        border-bottom: none; } }
+  .dashboard-nav p {
+    display: inline-block;
+    background-color: #F5F7FF;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    width: 15rem;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0.1rem 0.1rem 0.2rem #1F1F1F;
+    transition: all 0.2s; }
+    .dashboard-nav p:hover {
+      background-color: #4B49AC;
+      color: #F5F7FF; }
+
+.dashboard-content {
+  border: 0.1rem solid #1F1F1F;
+  width: 100%; }
+
+.post-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem; }
+  .post-container .post {
+    border: 0.2rem solid #1F1F1F;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: 32rem;
+    color: #1F1F1F;
+    transition: all 0.2s;
+    backface-visibility: hidden; }
+    .post-container .post:hover {
+      box-shadow: 0.1rem 0.2rem 0.3rem; }
+    .post-container .post .post-image img {
+      width: 100%;
+      height: auto; }
+    .post-container .post .post-content {
+      padding: 2rem; }
+      .post-container .post .post-content h1 {
+        font-size: 3rem; }
+      .post-container .post .post-content p {
+        font-size: 2rem; }
 
 .pageNotFound-container {
   width: 100vw;

@@ -1,11 +1,11 @@
 @import './baseStyle/variables.scss';
+@import './baseStyle/base';
 @import './baseStyle/buttons.scss';
 @import './baseStyle/utilities.scss';
 @import './baseStyle/inputs';
 @import './baseStyle/mixins.scss';
 
 
-@import './baseStyle/base';
 
 @import './components/navbar/navbar.scss';
 @import './components/home/home.scss';
@@ -16,6 +16,8 @@
 @import './components/userHome/userHome.scss';
 @import './components/blog/blog.scss';
 @import './components/blogForm/blogForm.scss';
+@import './components/dashboard/dashboard.scss';
+@import './components/userDashboard/userDashboard.scss';
 @import './components/pageNotFound/pageNotFound.scss';
 
 

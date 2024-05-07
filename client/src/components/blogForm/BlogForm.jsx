@@ -6,7 +6,7 @@ import { selectUser } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { addBlog } from '../../store/blogSlice';
 
-const BlogForm = ({title}) => {
+const BlogForm = () => {
     const selectedUser = useSelector(selectUser);
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -17,14 +17,32 @@ const BlogForm = ({title}) => {
         image: '',
         description: ''
     })
+    function base64ImageSize(base64String) {
+        // Remove data URL prefix if present
+        const base64WithoutPrefix = base64String.replace(/^data:image\/[a-z]+;base64,/, '');
+    
+        // Decode Base64 to binary
+        const binaryString = atob(base64WithoutPrefix);
+    
+        // Calculate size in KB
+        const sizeKB = binaryString.length / 1024;
+    
+        return sizeKB;
+    }
     const handleImage = (e) => {
         const reader = new FileReader();
         reader.readAsDataURL(e.target.files[0])
         reader.onload = () => {
-            setBlogForm({ ...blogForm, image: reader.result })
+            const size = base64ImageSize(reader.result);
+            console.log(size);
+            if(size < 1024){
+                setBlogForm({ ...blogForm, image: reader.result })
+            }else{
+                toast.error(`Please choose an image with size less than 1MB.`);
+            }
         }
         reader.onerror = () => {
-            toast.error('Please upload the image again');
+            toast.error('Please upload another image.');
         }
     }
 

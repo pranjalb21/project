@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(cors())
 app.use(errorMiddleware);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.options('*', cors());
 
 app.use('/api/auth', authRouter);
 app.use('/contact', contactRouter);

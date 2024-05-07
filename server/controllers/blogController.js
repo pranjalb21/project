@@ -19,7 +19,7 @@ const AddBlog = async (req, res) => {
 
 const GetAllBlog = async (req, res) => {
     try {
-        const result = await Blog.find({}).populate('userId');
+        const result = await Blog.find({}).sort({ createdAt: -1 }).populate('userId');
         if (result.length > 0)
             res.status(200).send({ message: `Blogs has been fetched`, data: result });
         else
@@ -39,4 +39,18 @@ const UploadImage = async (req, res) => {
     }
 }
 
-module.exports = { AddBlog, GetAllBlog, UploadImage }
+const GetBlogByUserId = async (req, res) => {
+    try {
+        const { user } = req.body;
+        const blogs = await Blog.find({ userId: user }).sort({ createdAt: -1 });
+        if (blogs.length > 0) {
+            res.status(200).send({ message: `Blogs has been fetched`, data: {blogs, favourites:[]} });
+        }else{
+            res.status(200).send({ message: `No blogs to show.` });
+        }
+    } catch (error) {
+        res.status(400).send({ message: `User not found` });
+    }
+}
+
+module.exports = { AddBlog, GetAllBlog, UploadImage, GetBlogByUserId }
