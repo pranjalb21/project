@@ -10,10 +10,12 @@ html {
 body {
   background-color: #F5F7FF;
   height: 100%;
-  font-family: "Nunito", sans-serif; }
+  font-family: "Nunito", sans-serif;
+  min-width: 40rem; }
 
-header {
-  height: 20%; }
+.navlink {
+  text-decoration: none;
+  color: #1F1F1F; }
 
 section {
   height: 70%; }
@@ -153,7 +155,7 @@ header .container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding: 3rem 2.4rem;
+  padding: 1.5rem 2rem;
   font-size: 1.5rem; }
   header .container .logo {
     max-width: 40rem;
@@ -169,32 +171,84 @@ header .container {
     header .container .logo h1 {
       display: inline-block;
       align-self: center;
-      color: #1F1F1F; }
-  header .container .inactive {
-    text-decoration: none;
-    border-bottom: 0.2rem solid transparent; }
-  header .container .navlink {
-    text-decoration: none;
+      color: #1F1F1F;
+      font-size: 2.5rem; }
+  header .container .navlink-desktop-container {
     color: #1F1F1F;
-    border-bottom: 0.2rem solid transparent;
-    transition: all 0.3s; }
-  header .container .active {
-    color: #1F1F1F;
-    text-decoration: none;
-    border-bottom: 0.2rem solid #1F1F1F; }
-  header .container .navlinks {
     align-self: center; }
-  header .container h1 {
-    font-weight: 600;
-    border-bottom: 0.2rem solid transparent; }
-  header .container ul {
-    display: flex;
-    gap: 3.2rem; }
-  header .container li {
-    list-style: none;
-    display: inline-block;
-    font-size: 1.7rem;
-    font-weight: 700; }
+    header .container .navlink-desktop-container ul {
+      list-style: none; }
+    header .container .navlink-desktop-container li {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      transition: .2s ease-out;
+      border-radius: 1.5rem;
+      letter-spacing: 0.1rem;
+      font-weight: 600; }
+      header .container .navlink-desktop-container li:hover {
+        background-color: #91b1f6;
+        color: #F5F7FF; }
+    header .container .navlink-desktop-container .active li {
+      background-color: #91b1f6;
+      color: #F5F7FF; }
+  header .container .navlink-mobile-container {
+    position: relative;
+    display: none;
+    transition: 2s ease-out; }
+    header .container .navlink-mobile-container input[type="checkbox"] {
+      display: none; }
+    header .container .navlink-mobile-container #ham {
+      cursor: pointer;
+      align-self: center; }
+    header .container .navlink-mobile-container #nav:checked ~ ul {
+      display: block;
+      z-index: 10; }
+    header .container .navlink-mobile-container #nav:checked ~ #ham {
+      display: none; }
+    header .container .navlink-mobile-container #nav:not(:checked) ~ #outside {
+      display: none; }
+    header .container .navlink-mobile-container label {
+      font-size: 3rem; }
+    header .container .navlink-mobile-container #outside {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 9; }
+    header .container .navlink-mobile-container ul {
+      display: none;
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background-color: #F5F7FF;
+      list-style: none;
+      box-shadow: 0 0.5rem 1rem;
+      width: 30rem;
+      padding: 1rem;
+      padding-top: 3rem; }
+      header .container .navlink-mobile-container ul label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer; }
+    header .container .navlink-mobile-container li {
+      padding: 1rem 2rem;
+      letter-spacing: .2rem;
+      font-weight: 600;
+      transition: all .3s ease-out; }
+      header .container .navlink-mobile-container li:hover {
+        background-color: #91b1f6; }
+    header .container .navlink-mobile-container .active li {
+      background-color: #91b1f6;
+      color: #F5F7FF; }
+  @media (max-width: 56.25em) {
+    header .container {
+      justify-content: space-between; }
+      header .container .navlink-desktop-container {
+        display: none; }
+      header .container .navlink-mobile-container {
+        display: flex; } }
 
 .home-container {
   display: flex;

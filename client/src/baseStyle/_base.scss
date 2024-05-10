@@ -14,12 +14,12 @@ body {
     background-color: $bg-color;
     height: 100%;
     font-family: "Nunito", sans-serif;
-
-    
+    min-width: 40rem;
 }
 
-header {
-    height: 20%;
+.navlink{
+    text-decoration: none;
+    color: $text-color
 }
 
 section {
