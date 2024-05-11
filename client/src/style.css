@@ -5,13 +5,21 @@
 
 html {
   font-size: 62.5%;
-  height: 100vh; }
+  height: 100%;
+  box-sizing: border-box; }
 
 body {
   background-color: #F5F7FF;
-  height: 100%;
+  min-height: 100%;
   font-family: "Nunito", sans-serif;
-  min-width: 40rem; }
+  min-width: 40rem;
+  position: relative;
+  box-sizing: inherit;
+  padding-bottom: 7rem; }
+
+.main-container {
+  display: flex;
+  flex-direction: column; }
 
 .navlink {
   text-decoration: none;
@@ -539,6 +547,20 @@ header .container {
         font-size: 3rem; }
       .post-container .post .post-content p {
         font-size: 2rem; }
+
+.footer-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #181818;
+  height: 7rem;
+  color: #F5F7FF;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem; }
 
 .pageNotFound-container {
   width: 100vw;
