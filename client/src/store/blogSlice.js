@@ -26,5 +26,5 @@ const blogReducer = createSlice({
 export const selectBlogs = state => state.blog.blogs;
 export const selectUserBlog = (state) => state.blog.blogs;
 export const selectUserFavourite = (state) => state.blog.favourites;
-export const { getAllBlogs, addBlog } = blogReducer.actions;
+export const { getAllBlogs, addBlog, setDashboard } = blogReducer.actions;
 export default blogReducer.reducer;

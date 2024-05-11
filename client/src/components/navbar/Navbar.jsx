@@ -49,7 +49,7 @@ const Navbar = () => {
             </NavLink> */}
             {isLoggedIn ?
               <>
-                <NavLink to={'/dashboard'} className={({ isActive, isPending }) =>
+                <NavLink to={'/dashboard/blogs'} className={({ isActive, isPending }) =>
                   isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
                 }>
                   <li>My Dashboard</li>
@@ -106,7 +106,7 @@ const Navbar = () => {
             </NavLink> */}
             {isLoggedIn ?
               <>
-                <NavLink to={'/dashboard'} className={({ isActive, isPending }) =>
+                <NavLink to={'/dashboard/blogs'} className={({ isActive, isPending }) =>
                   isPending ? "pending navlink" : isActive ? "active navlink" : " navlink"
                 }>
                   <li>My Dashboard</li>

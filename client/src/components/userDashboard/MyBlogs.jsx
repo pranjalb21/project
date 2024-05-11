@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser, setDashboard } from '../../store/authSlice';
+import { selectUser } from '../../store/authSlice';
 import axios from 'axios';
-import { selectUserBlog } from '../../store/blogSlice';
+import { selectUserBlog, setDashboard } from '../../store/blogSlice';
 import { Link } from 'react-router-dom';
 
 const MyBlogs = () => {

@@ -553,14 +553,26 @@ header .container {
   width: 100%;
   bottom: 0;
   background-color: #181818;
-  height: 7rem;
+  height: 8rem;
   color: #F5F7FF;
   text-align: center;
   letter-spacing: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.5rem;
   margin-top: 5rem; }
+  .footer-container .details {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .footer-container .details .links {
+      font-size: 2rem; }
+      .footer-container .details .links svg {
+        cursor: pointer; }
+        .footer-container .details .links svg:hover {
+          color: #91b1f6; }
 
 .pageNotFound-container {
   width: 100vw;
