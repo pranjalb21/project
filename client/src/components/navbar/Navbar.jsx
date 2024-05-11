@@ -21,7 +21,7 @@ const Navbar = () => {
           <div className="logo">
             <img src="./travel-bag.svg" alt="TravelBlog" />
             <div className="logo-text">
-              <h1>TravellBlog</h1>
+              <h1>TravelBlog</h1>
             </div>
           </div>
         </NavLink>
