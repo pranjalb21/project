@@ -22,7 +22,7 @@ const UserHome = () => {
     return (
         <div className='userHome-container'>
             <div className="heading">
-                <h1>Post you blog</h1>
+                <h1>Post your blog</h1>
                 <Link to={"/blog/new"} className='addPost'><IoIosAddCircle className='icon' /></Link>
             </div>
             <div className='post-container'>

@@ -20,7 +20,10 @@
 
         .links{
             font-size: 2rem;
-
+            .footer-link{
+                text-decoration: none;
+                color: $bg-color;
+            }
             svg{
                 cursor: pointer;
 
