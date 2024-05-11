@@ -17,6 +17,7 @@ import DashboardPage from './pages/DashboardPage';
 import MyProfile from './components/userDashboard/MyProfile';
 import MyBlogs from './components/userDashboard/MyBlogs';
 import MyFavourite from './components/userDashboard/MyFavourite';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,8 @@ const App = () => {
     fetchUser();
   }, [fetchUser, localStorage.getItem('token')])
   return (
+    <div className="main-container">
+      
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -60,8 +63,9 @@ const App = () => {
         </Route>
         <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
-
+    <Footer />
     </BrowserRouter>
+    </div>
   )
 }
 

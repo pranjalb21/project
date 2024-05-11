@@ -6,20 +6,28 @@
 
 html {
     font-size: 62.5%;
-    height: 100vh;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 
 body {
     background-color: $bg-color;
-    height: 100%;
+    min-height: 100%;
     font-family: "Nunito", sans-serif;
-
-    
+    min-width: 40rem;
+    position: relative;
+    box-sizing: inherit;
+    padding-bottom: 7rem;
 }
 
-header {
-    height: 20%;
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+.navlink{
+    text-decoration: none;
+    color: $text-color
 }
 
 section {
