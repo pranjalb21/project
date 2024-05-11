@@ -4,6 +4,7 @@ import { IoIosAddCircle } from "react-icons/io";
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBlogs, selectBlogs } from '../../store/blogSlice';
+import PostCard from '../postCards/PostCard';
 
 const UserHome = () => {
     const GET_BLOGS = `http://localhost:5000/blog`;
@@ -27,24 +28,7 @@ const UserHome = () => {
             </div>
             <div className='post-container'>
                 {selectedBlogs ? selectedBlogs.map((post,index) => (
-                    <div className="post" key={index}>
-                        <div className="post-image">
-                                <img src={post.image} alt="Post Image" />
-                        </div>
-                        <div className="post-content">
-                            <h1 className='mb-sm'>
-                                {post.title.substring(0, 15)}
-                                {post.title.length >= 15 ? '...' : ''}
-                            </h1>
-                            <p className='mb-sm'>
-                                {post.description.substring(0, 100)}
-                                {post.description.length >= 100 ? '...' : ''}
-                            </p>
-                            <Link to={`/blog/${post.id}`}>
-                                <button className='btn btn-secondary'>Read more</button>
-                            </Link>
-                        </div>
-                    </div>
+                    <PostCard post={post} key={index} />
                 )):<p>No blogs to show...</p>}
 
             </div>
