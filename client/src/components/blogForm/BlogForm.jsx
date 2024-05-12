@@ -5,70 +5,71 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectUser } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { addBlog } from '../../store/blogSlice';
+import Loading from '../loading/Loading';
 
 const BlogForm = () => {
     const selectedUser = useSelector(selectUser);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const FORM_UPLOAD = `http://localhost:5000/blog/add`;
+    const [loading, setLoading] = useState(false);
+    const FORM_UPLOAD = `http://localhost:5000/blog/upload`;
     const [blogForm, setBlogForm] = useState({
         userId: '',
         title: '',
-        image: '',
+        image: null,
         description: ''
     })
-    function base64ImageSize(base64String) {
-        // Remove data URL prefix if present
-        const base64WithoutPrefix = base64String.replace(/^data:image\/[a-z]+;base64,/, '');
-    
-        // Decode Base64 to binary
-        const binaryString = atob(base64WithoutPrefix);
-    
-        // Calculate size in KB
-        const sizeKB = binaryString.length / 1024;
-    
-        return sizeKB;
+
+    const handleDataChange = (e) => {
+        setBlogForm({
+            ...blogForm,
+            [e.target.name]: e.target.value
+        })
     }
-    const handleImage = (e) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(e.target.files[0])
-        reader.onload = () => {
-            const size = base64ImageSize(reader.result);
-            console.log(size);
-            if(size < 1024){
-                setBlogForm({ ...blogForm, image: reader.result })
-            }else{
-                toast.error(`Please choose an image with size less than 1MB.`);
+
+    const handleFileChange = (e) => {
+        const img = e.target.files[0];
+        if (img) {
+            if (img.size > 1000000) {
+                toast.error(`Image size should not exeed 1MB.`);
+            } else if (!["image/jpg", "image/jpeg", "image/png"].includes(img.type)) {
+                toast.error(`Please upload a correct image type.`);
+            } else {
+                setBlogForm({
+                    ...blogForm,
+                    image: img
+                })
             }
-        }
-        reader.onerror = () => {
-            toast.error('Please upload another image.');
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        const data = new FormData();
+        data.append('userId', blogForm.userId);
+        data.append('title', blogForm.title);
+        data.append('image', blogForm.image);
+        data.append('description', blogForm.description);
         try {
-            const response = await axios.post(FORM_UPLOAD, blogForm);
-            if (response.status === 201) {
-                toast.success(response.data.message);
-                dispatch(addBlog(response.data.blog))
-                setBlogForm({
-                    ...blogForm,
-                    title: '',
-                    image: '',
-                    description: ''
-                })
-                navigate('/');
-            } else {
-                toast.error(response.data.message);
-            }
-        } catch (err) {
-            console.log(err);
-            toast.error(err.response.data.message);
-            err.response.data.extraDetails && err.response.data.extraDetails.map(msg=>{
-                toast.error(msg);
+            const result = await axios.post(FORM_UPLOAD, data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             })
+            toast.success(result.data.message);
+            dispatch(addBlog(result.data));
+            setBlogForm({
+                userId: '',
+                title: '',
+                image: null,
+                description: ''
+            })
+            setLoading(false);
+            navigate('/');
+        } catch (error) {
+            setLoading(false);
+            toast.error(`Something went wrong. Please try again`, error)
         }
     }
     useEffect(() => {
@@ -79,6 +80,7 @@ const BlogForm = () => {
     }, [selectedUser])
     return (
         <div className='blogform-container'>
+            {loading ? <Loading /> : null}
             <h1>Add you Blog</h1>
             <form className="blogform" onSubmit={handleSubmit}>
                 <div className="input-text">
@@ -88,7 +90,7 @@ const BlogForm = () => {
                         placeholder='Blog title'
                         value={blogForm.title}
                         required
-                        onChange={(e) => setBlogForm({ ...blogForm, [e.target.name]: e.target.value })}
+                        onChange={handleDataChange}
                     />
                     <label htmlFor="title">Blog title</label>
                 </div>
@@ -99,7 +101,7 @@ const BlogForm = () => {
                         id='image'
                         accept='image/*'
                         placeholder='Blog image'
-                        onChange={handleImage}
+                        onChange={handleFileChange}
                         required
                     />
                 </div>
@@ -109,7 +111,7 @@ const BlogForm = () => {
                         placeholder='Blog description'
                         value={blogForm.description}
                         required
-                        onChange={(e) => setBlogForm({ ...blogForm, [e.target.name]: e.target.value })}
+                        onChange={handleDataChange}
                     />
                     <label htmlFor="description">Blog description</label>
                 </div>
