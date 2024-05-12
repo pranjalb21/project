@@ -11,12 +11,9 @@ const UserHome = () => {
     const dispatch = useDispatch();
     const selectedBlogs = useSelector(selectBlogs);
     const getblog = async () => {
-
-        const result = await axios.get(GET_BLOGS).catch(err=>console.log(err));
+        const result = await axios.get(GET_BLOGS).catch(err => console.log(err));
         dispatch(getAllBlogs(result.data.data))
-
     }
-
     useEffect(() => {
         getblog()
     }, [])
@@ -27,9 +24,9 @@ const UserHome = () => {
                 <Link to={"/blog/new"} className='addPost'><IoIosAddCircle className='icon' /></Link>
             </div>
             <div className='post-container'>
-                {selectedBlogs ? selectedBlogs.map((post,index) => (
-                    <PostCard post={post} key={index} />
-                )):<p>No blogs to show...</p>}
+                {selectedBlogs ? selectedBlogs.map((post, index) => (
+                    <PostCard post={post} key={index} home={true} />
+                )) : <p>No blogs to show...</p>}
 
             </div>
         </div>

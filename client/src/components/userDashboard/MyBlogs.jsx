@@ -5,6 +5,7 @@ import axios from 'axios';
 import { selectUserBlog, setDashboard } from '../../store/blogSlice';
 import { Link } from 'react-router-dom';
 import PostCard from '../postCards/PostCard';
+import { toast } from 'react-toastify';
 
 const MyBlogs = () => {
   const selectedUser = useSelector(selectUser);
@@ -16,7 +17,7 @@ const MyBlogs = () => {
       const result = await axios.post(URL, { "user": id })
       await dispatch(setDashboard(result.data.data))
     } catch (error) {
-      // console.log(error);
+      toast.error(`Something went wrong. Please try again.`)
     }
   }
   useEffect(() => {

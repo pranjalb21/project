@@ -1,7 +1,11 @@
-import React from 'react'
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+    useEffect(()=>{
+        navigate('/dashboard/blogs');
+    },[])
     return (
         <div className='dashboard-container'>
             <div className="dashboard-nav">

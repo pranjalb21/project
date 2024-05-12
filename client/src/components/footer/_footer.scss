@@ -29,8 +29,12 @@
 
                 &:hover{
                     color: $dark-text-active-color;
+                    transform: translateY(0.2rem) scale(1.2)
                 }
             }
         }
+    }
+    .footer-link{
+        margin: 1rem;
     }
 }

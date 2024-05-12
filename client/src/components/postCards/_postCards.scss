@@ -9,6 +9,79 @@
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
+
+    .favourite{
+        position: absolute;
+        height: 4rem;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        color: rgba(255, 225, 0, 0.934);
+        background-color: rgba(245, 145, 145, 0.578);
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 1rem;
+        transition: all 0.2s ease-out;
+        &:hover{
+            transform: scale(0.99);
+            background-color: rgba(245, 145, 145, 0.592);
+            color: $bg-color;
+            &::after{
+                content: "Add to favourites";
+                position: absolute;
+                padding: 2rem;
+                width: 10rem;
+                height: 3rem;
+                font-size: 1rem;
+                background-color: rgba(240, 248, 255, 0.847);
+                color: grey;
+                clip-path: polygon(69% 19%, 91% 4%, 86% 19%, 86% 60%, 48% 60%, 0% 60%, 0 19%);
+                border-radius: 20%;
+                top: 4rem;
+                right: 1rem;
+            }
+        }
+        &:active{
+            transform:  translateY(0.2rem);
+        }
+    }
+    .delete{
+        position: absolute;
+        height: 4rem;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        color: rgba(255, 225, 0, 0.934);
+        background-color: rgba(245, 145, 145, 0.578);
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 1rem;
+        transition: all 0.2s ease-out;
+        &:hover{
+            transform: scale(0.99);
+            background-color: rgba(245, 145, 145, 0.592);
+            color: $bg-color;
+            backface-visibility: hidden;
+            &::after{
+                content: "Delete this post";
+                position: absolute;
+                padding: 2rem;
+                width: 10rem;
+                height: 3rem;
+                font-size: 1rem;
+                background-color: rgba(240, 248, 255, 0.847);
+                color: grey;
+                clip-path: polygon(69% 19%, 91% 4%, 86% 19%, 86% 60%, 48% 60%, 0% 60%, 0 19%);
+                border-radius: 20%;
+                top: 4rem;
+                right: 1rem;
+            }
+        }
+        &:active{
+            transform:  translateY(0.2rem)
+        }
+    }
 
     &:hover {
         box-shadow: 0.1rem 0.2rem 0.3rem;

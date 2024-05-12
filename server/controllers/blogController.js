@@ -126,4 +126,4 @@ const UploadBlog = async (req, res) => {
 }
 
 
-module.exports = { AddBlog, GetAllBlog, UploadBlog, GetBlogByUserId }
+module.exports = { AddBlog, GetAllBlog, UploadBlog, GetBlogByUserId, generateURL }

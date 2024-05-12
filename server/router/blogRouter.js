@@ -11,6 +11,6 @@ router
     .get('/', blogController.GetAllBlog)
     .post(`/add`,validate(blogValidatorSchema),errorMiddleware, blogController.AddBlog)
     .post(`/getBlogByUser`, blogController.GetBlogByUserId)
-    .post(`/upload`,upload.single('image'), blogController.UploadBlog);
+    .post(`/upload`,upload.single('image'), blogController.UploadBlog)
 
 module.exports = router;
