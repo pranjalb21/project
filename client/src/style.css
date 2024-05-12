@@ -603,10 +603,10 @@ header .container {
       color: #F5F7FF;
       backface-visibility: hidden; }
       .post .delete:hover::after {
-        content: "Delete this post";
+        content: "Remove";
         position: absolute;
         padding: 2rem;
-        width: 10rem;
+        width: 5rem;
         height: 3rem;
         font-size: 1rem;
         background-color: rgba(240, 248, 255, 0.847);

@@ -8,23 +8,7 @@ import PostCard from '../postCards/PostCard';
 import { toast } from 'react-toastify';
 
 const MyBlogs = () => {
-  const selectedUser = useSelector(selectUser);
   const selectedBlogs = useSelector(selectUserBlog);
-  const dispatch = useDispatch();
-  const URL = `http://localhost:5000/blog/getBlogByUser`
-  const getBlogsByUserId = async (id) => {
-    try {
-      const result = await axios.post(URL, { "user": id })
-      await dispatch(setDashboard(result.data.data))
-    } catch (error) {
-      toast.error(`Something went wrong. Please try again.`)
-    }
-  }
-  useEffect(() => {
-    if (selectedUser._id) {
-      getBlogsByUserId(selectedUser._id)
-    }
-  }, [])
   return (
     <div className='post-container'>
       {selectedBlogs ? selectedBlogs.map((post, index) => (

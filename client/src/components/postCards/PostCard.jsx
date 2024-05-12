@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../store/authSlice';
 import axios from 'axios';
 import {toast} from 'react-toastify';
-import { deleteFavourite } from '../../store/favouriteSlice';
+import { addFavourite, deleteFavourite } from '../../store/favouriteSlice';
 
 const PostCard = ({ post, home = false, dashHome = false, dashFav = false }) => {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const PostCard = ({ post, home = false, dashHome = false, dashFav = false }) => 
                 blog: blog
             }
             const result = await axios.post(FAV_ADD_LINK, params);
+            await dispatch(addFavourite(result.data.data))
             toast.success(result.data.message);
         } catch (error) {
             console.log(error)

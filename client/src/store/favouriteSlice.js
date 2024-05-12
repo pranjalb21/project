@@ -13,6 +13,9 @@ const favouriteReducer = createSlice({
         },
         deleteFavourite: (state, action) => {
             state.blogs = state.blogs.filter(blog => blog._id !== action.payload)
+        },
+        addFavourite: (state, action) => {
+            state.blogs.push(action.payload)
         }
 
     }
@@ -20,5 +23,5 @@ const favouriteReducer = createSlice({
 
 export const selectFavouriteBlogs = (state) => state.favourite.blogs;
 
-export const { setFavourites, deleteFavourite } = favouriteReducer.actions;
+export const { setFavourites, deleteFavourite, addFavourite } = favouriteReducer.actions;
 export default favouriteReducer.reducer;
