@@ -503,6 +503,13 @@ header .container {
   border: 0.1rem solid #1F1F1F;
   width: 100%; }
 
+.post-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem; }
+
 .footer-container {
   position: absolute;
   width: 100%;
@@ -562,6 +569,18 @@ header .container {
       font-size: 2rem; }
     .post .post-content .post-button {
       margin-top: auto; }
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: grey;
+  opacity: 0.5;
+  z-index: 11; }
+  .loading-container .loading-img {
+    margin: 0 auto; }
 
 .pageNotFound-container {
   width: 100vw;

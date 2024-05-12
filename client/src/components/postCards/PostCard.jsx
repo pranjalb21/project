@@ -5,7 +5,7 @@ const PostCard = ({post}) => {
     return (
         <div className="post" key={post._id}>
             <div className="post-image">
-                <img src={post.image} alt="Post Image" />
+                <img src={post.imageURL} alt="Post Image" />
             </div>
             <div className="post-content">
                 <h1 className='mb-sm'>

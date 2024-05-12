@@ -14,7 +14,7 @@ const blogReducer = createSlice({
             state.blogs = action.payload;
         },
         addBlog: (state,action)=>{
-            state.blogs.push(action.payload);
+            state.blogs.push(action.payload.data);
         },
         setDashboard: (state, action)=>{
             state.blogs = action.payload.blogs

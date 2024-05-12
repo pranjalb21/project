@@ -3,7 +3,6 @@ import BlogForm from '../components/blogForm/BlogForm'
 
 const BlogFormPage = ({title}) => {
     useEffect(()=>{
-        console.log(title);
         document.title = `Bookstore | ${title}` 
     },[])
   return (
