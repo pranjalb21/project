@@ -7,34 +7,31 @@ const Home = () => {
     const selectedLogin = useSelector(selectLogin);
     return (
         <div className='home-container'>
-            <div className="heading">
-                <h1>Welcome to BookStore</h1>
-            </div>
             <div className="leaflet">
-                <div className="text">
-                    <div className="textDetails">
-                        <h2 className='ls-sm'>Lorem ipsum dolor sit amet.</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, perferendis commodi. Perspiciatis, iste? Voluptatem eveniet cumque neque quidem totam, assumenda vitae architecto dolores dicta exercitationem consequuntur laudantium in nihil perferendis, commodi similique saepe nulla blanditiis soluta molestias ad sapiente accusamus!</p>
-                    <div className="goto">
+                <div className="textDetails">
+                    <h2 className='ls-sm'>
+                        Welcome to Our Blogging Haven!
+                    </h2>
+                    <p>
+                        Discover a vibrant online space where words flourish and ideas ignite. Our blog posting website is a dynamic platform, inviting writers of all stripes to share their passions, insights, and stories with the world. From thought-provoking essays to captivating personal narratives, our community fosters creativity and connection. With user-friendly tools and a supportive environment, crafting and publishing content is effortless. Engage with diverse perspectives, spark meaningful discussions, and explore an array of topics spanning from arts and culture to science and technology. Join us in shaping the digital landscape, one compelling post at a time.
+                    </p>
+                    <div className="goto mt-sm">
                         <NavLink to={'/contact'}>
 
                             <button className="btn btn-primary ls-sm">
                                 Contact us
                             </button>
                         </NavLink>
-                        {selectedLogin ? '':
+                        {selectedLogin ? '' :
                             <NavLink to={'/register'}>
-                                <button className="btn btn-secondary ls-sm ml-md">
+                                <button className="btn btn-primary ls-sm ml-md">
                                     Register
                                 </button>
 
                             </NavLink>}
                     </div>
-                    </div>
                 </div>
-                <div className="image">
-                    <img src="./book.svg" alt="Book store home page" />
-                </div>
+
             </div>
         </div>
     )

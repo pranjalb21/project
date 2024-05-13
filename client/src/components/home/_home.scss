@@ -1,49 +1,54 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 10rem;
-    max-height: 90%;
+    height: 55rem;
+    background-image: url('./back.jpg'); /* Replace 'background-image.jpg' with the URL or path to your image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
 
-    .heading {
+    .leaflet{
         width: 100%;
-        color: $text-color;
-        text-align: center;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: end;
+        flex-direction: column;
+        color: $dark-text-active-color;
+        padding: 5rem 4rem;
 
-        h1 {
-            font-size: 3rem;
-        }
-    }
-
-
-    .leaflet {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 5rem;
-        gap: 2rem;
-        
         .textDetails{
-            color: $text-color;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            h2{
-                font-size: 2.5rem;
-            }
-        }
-        .image {
-            img {
-                max-height: 80%;
-            }
-        }
-        .text {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            .goto {
-                margin-top: 3rem;
-                display: flex;
+            align-self: flex-end;
+            width: 50%;
+            @include respond(tab-land){
+                width: 70%;
             }
+            @include respond(tab-port){
+                width: 100%;
+            }
+
+            h2{
+                font-size: 4rem;
+                text-shadow: 2rem solid black;
+                -webkit-text-stroke: 1px black;
+                @include respond(tab-land){
+                    font-size: 3rem;
+                }
+            }
+            p{
+                -webkit-text-stroke: 0.1px $text-color;
+                font-size: 1.5rem;
+                color: $bg-color;
+                text-align: justify;
+                
+                @include respond(tab-land){
+                    font-size: 1.4rem;
+                }
+            }
+        }
+        .goto{
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }

@@ -3,20 +3,22 @@
     outline: none;
     cursor: pointer;
     border-radius: 1rem;
-    border: none;
     border: 0.2rem solid transparent;
-    width: 20rem;
     transition: all 0.2s;
 }
 
 .btn-primary {
-    background-color: $button-color;
+    background-color: #91b1f6ca;
     font-size: 1.5rem;
-
+    border: 0.2rem solid $button-text-color;
+    
     &:hover {
         background-color: $button-active-color;
         color: $button-text-color;
         border: 0.2rem solid $button-text-color;
+    }
+    &:active{
+        transform: translateY(0.1rem);
     }
 }
 
@@ -29,6 +31,5 @@
     &:hover {
         background-color: $button-active-color;
         color: $button-text-color;
-        border: 0.2rem solid $button-text-color;
     }
 }
