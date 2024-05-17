@@ -2,7 +2,7 @@ import React from 'react'
 
 const MyProfile = () => {
   return (
-    <div>
+    <div className='post-container'>
       My profile
     </div>
   )

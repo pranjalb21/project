@@ -43,9 +43,10 @@ const App = () => {
     fetchUser();
   }, [fetchUser, localStorage.getItem('token')])
   return (
-    <div className="main-container">
-      
+
     <BrowserRouter>
+
+      <div className="background-image"></div>
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage title={`Home`} />} />
@@ -63,9 +64,8 @@ const App = () => {
         </Route>
         <Route path='/*' element={<PageNotFoundPage title={`Error`} />} />
       </Routes>
-    <Footer />
+      <Footer />
     </BrowserRouter>
-    </div>
   )
 }
 

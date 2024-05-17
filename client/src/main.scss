@@ -1,26 +1,26 @@
-@import './baseStyle/variables.scss';
+@import './baseStyle/variables';
+@import './baseStyle/mixins';
+@import './baseStyle/buttons';
 @import './baseStyle/base';
-@import './baseStyle/buttons.scss';
-@import './baseStyle/utilities.scss';
+@import './baseStyle/utilities';
 @import './baseStyle/inputs';
-@import './baseStyle/mixins.scss';
 
 
 
-@import './components/navbar/navbar.scss';
-@import './components/home/home.scss';
-@import './components/register/register.scss';
-@import './components/contact/contact.scss'; 
-@import './components/login/login.scss';
-@import './components/about/about.scss';
-@import './components/userHome/userHome.scss';
-@import './components/blog/blog.scss';
-@import './components/blogForm/blogForm.scss';
-@import './components/dashboard/dashboard.scss';
-@import './components/userDashboard/userDashboard.scss';
+@import './components/navbar/navbar';
+@import './components/home/home';
+@import './components/register/register';
+@import './components/contact/contact'; 
+@import './components/login/login';
+@import './components/about/about';
+@import './components/userHome/userHome';
+@import './components/blog/blog';
+@import './components/blogForm/blogForm';
+@import './components/dashboard/dashboard';
+@import './components/userDashboard/userDashboard';
 @import './components/footer/footer';
 @import './components/postCards/postCards';
 @import './components/loading/loading';
-@import './components/pageNotFound/pageNotFound.scss';
+@import './components/pageNotFound/pageNotFound';
 
 

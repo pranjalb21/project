@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { selectLogin, userLogin } from '../../store/authSlice';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [passVisible, setPassVisible] = useState(false);
     const selectedUser = useSelector(selectLogin);
     const URL = `http://localhost:5000/api/auth/login`;
     const [userForm, setUserForm] = useState({
@@ -14,7 +16,10 @@ const Login = () => {
         password: ''
     })
 
-    const handleLogin = async (e) =>{
+    const handlePassVisible = () => {
+        setPassVisible(!passVisible);
+    }
+    const handleLogin = async (e) => {
         e.preventDefault();
         setUserForm({
             ...userForm,
@@ -22,7 +27,7 @@ const Login = () => {
         })
 
         try {
-            const result = await fetch(URL,{
+            const result = await fetch(URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8'
@@ -30,27 +35,27 @@ const Login = () => {
                 body: JSON.stringify(userForm)
             })
             const res = await result.json();
-            if(result.ok){
+            if (result.ok) {
                 setUserForm({
                     email: '',
                     password: ''
                 });
-                const userData = await fetch(`http://localhost:5000/api/auth/user`,{
+                const userData = await fetch(`http://localhost:5000/api/auth/user`, {
                     method: 'GET',
-                    headers:{
+                    headers: {
                         'Authorization': `Bearer ${res.token}`
                     }
                 }).then(res => res.json())
                 toast.success(`Login successfull.`)
-                
+
                 dispatch(userLogin({
                     token: res.token,
                     user: userData
                 }))
                 navigate('/');
-            }else{
+            } else {
                 toast.error(res.message)
-                res.extraDetails && res.extraDetails.map(msg=>{
+                res.extraDetails && res.extraDetails.map(msg => {
                     toast.error(msg);
                 })
             }
@@ -59,48 +64,44 @@ const Login = () => {
         }
     }
 
-    useEffect(()=>{
-        if(selectedUser){
+    useEffect(() => {
+        if (selectedUser) {
             navigate('/');
         }
-    },[selectedUser])
-  return (
-    <div className='login-container'>
-            <div className="login-image">
-                <img src="./login.svg" alt="Signup image" className='signup-img'  />
-            </div>
-            <div className="login-form">
-                <h3>Log in</h3>
-                <form action="" className='form' onSubmit={handleLogin}>
-                    <div className="input-text">
-                        <input 
-                        type="text" 
-                        name="email" 
-                        id="email" 
-                        placeholder='Username / Email' 
+    }, [selectedUser])
+    return (
+        <div className='login-container'>
+            <h1 className='mt-md mb-md'>Log in</h1>
+            <form action="" className='login-form' onSubmit={handleLogin}>
+                <div className="input-area mt-md">
+                    <input
+                        type="text"
+                        name="email"
+                        id="email"
                         required
-                        onChange={(e)=>setUserForm({...userForm, [e.target.name]:e.target.value})}
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
                         value={userForm.email} />
-                        <label htmlFor="email">Username / Email</label>
-                    </div>
-                    <div className="input-text">
-                        <input 
-                        type="password" 
-                        name="password" 
-                        id="password" 
-                        placeholder='Password' 
+                    <label htmlFor="email">Username / Email</label>
+                </div>
+                <div className="input-area">
+                    <input
+                        type={passVisible ? "text" : "password"}
+                        name="password"
+                        id="password"
                         required
-                        onChange={(e)=>setUserForm({...userForm, [e.target.name]:e.target.value})}
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
                         value={userForm.password} />
-                        <label htmlFor="password">Password</label>
-                    </div>
-                    <div className="input-text">
-                        <button type="submit" className='btn btn-primary'>Log In</button>
-                    </div>
-                </form>
-            </div>
+                    <label htmlFor="password">Password</label>
+                    {passVisible ?
+                        <FaEyeSlash onClick={handlePassVisible} /> :
+                        <FaEye onClick={handlePassVisible} />}
+                </div>
+                <div className="input-button">
+                    <button type="submit" className='btn btn-primary'>Log In</button>
+                </div>
+            </form>
         </div>
-  )
+    )
 }
 
 export default Login

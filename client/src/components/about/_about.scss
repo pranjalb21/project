@@ -1,44 +1,42 @@
-.about-container {
-    font-size: 2rem;
-    color: $text-color;
-    position: relative;
-    height: 55rem;
-
-    .image {
-        height: 100%;
-        width: 100%;
-        opacity: 0.7;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: url('./about.jpeg');
-        background-size: cover;
-        background-position: top;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
-
-    .content {
-        width: 70%;
+.about-container{
+    .content{
+        display: flex;
+        flex-direction: column;
         padding: 3rem;
-        @include respond(tab-land){
-            width: 100%;
-        }
+        color: white;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
         @include respond(tab-port){
-            padding: 1rem;
+            align-items: baseline;
+            padding: 2rem;
         }
-        h4{
-            letter-spacing: 0.1rem;
-            font-size: 2rem;
-            @include respond(tab-port){
-                font-size: 1.5rem;
+
+        h1{
+            -webkit-text-stroke: 0.01rem black;
+            font-size: 4rem;
+            width: 80%;
+            @include respond(tab-land){
+                -webkit-text-stroke: 0rem;
+                font-size: 3rem;
+                width: 100%;
             }
         }
-        p {
-            font-weight: 600;
-            font-size: 1.5rem;
-            @include respond(tab-port){
-                font-size: 1.2rem;
+        h4{
+            font-size: 3rem;
+            width: 80%;
+            @include respond(tab-land){
+                font-size: 2rem;
+                width: 100%;
+            }
+        }
+        p{
+            font-size: 2rem;
+            width: 80%;
+            text-align: justify;
+            @include respond(tab-land){
+                font-size: 1.5rem;
+                width: 100%;
             }
         }
     }

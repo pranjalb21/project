@@ -1,138 +1,163 @@
-header {
-    .container {
-        width: 100vw;
+.navbar-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 1rem 2rem;
+    background-color: rgba(240, 248, 255, 0.47);
+    font-size: 1.5rem;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.248);
+
+    .logo {
+        max-width: 40rem;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
-        padding: 1.5rem 2rem;
-        font-size: 1.5rem;
-        box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.248);
+        text-decoration: none;
 
-        .logo {
-            max-width: 40rem;
+        img {
+            height: 5rem;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .logo-text {
             display: flex;
-            flex-direction: row;
-            text-decoration: none;
-
-            img {
-                height: 5rem;
-                border-radius: 50%;
-                margin-right: 1rem;
-            }
-
-            .logo-text {
-                display: flex;
-            }
-
-            h1 {
-                display: inline-block;
-                align-self: center;
-                color: $text-color;
-                font-size: 2.5rem;
-            }
         }
 
-        .navlink-desktop-container {
-            color: $text-color;
+        h1 {
+            display: inline-block;
             align-self: center;
+            color: $text-color;
+            font-size: 2.5rem;
+        }
+    }
+    .navlink{
+        text-decoration: none;
+        color: $text-color;
+    }
 
-            ul {
-                list-style: none;
+    .navlink-desktop-container {
+        color: $text-color;
+        align-self: center;
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            color: $text-color;
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            transition: .2s ease-out;
+            border-radius: 0.5rem;
+            letter-spacing: 0.1rem;
+            font-weight: 600;
+            &:last-child{
+            margin-right: 1rem;
+            }
+            &:not(:last-child){
+                margin-right: 3rem;
             }
 
-            li {
-                display: inline-block;
-                padding: 1rem 1.5rem;
-                transition: .2s ease-out;
-                border-radius: 1.5rem;
-                letter-spacing: 0.1rem;
-                font-weight: 600;
-
-                &:hover {
-                    background-color: $dark-text-active-color;
-                    color: $bg-color;
-                }
-            }
-
-            .active li {
-                background-color: $dark-text-active-color;
+            &:hover {
+                background-color: $button-active-color;
                 color: $bg-color;
             }
         }
 
-        .navlink-mobile-container{
-            position: relative;
+        .active li {
+            background-color: $button-color;
+            color: $bg-color;
+        } 
+    }
+
+    .navlink-mobile-container {
+        position: relative;
+        display: none;
+        transition: 2s ease-out;
+
+        input[type="checkbox"] {
             display: none;
-            transition: 2s ease-out;
-            input[type="checkbox"]{
-                display: none;
-            }
-            #ham{
-                cursor: pointer;
-                align-self: center;
-            }
-            #nav:checked ~ ul{
-                display: block;
-                z-index: 10;
-            }
-            #nav:checked ~ #ham{
-                display: none;
-            }
-            #nav:not(:checked) ~ #outside{
-                display: none;
-            }
-            label{
-                font-size: 3rem;
-            }
-            #outside{
-                position: fixed;
-                height: 100%;
-                width: 100%;
+        }
+
+        #ham {
+            cursor: pointer;
+            align-self: center;
+        }
+
+        #nav:checked~ul {
+            display: block;
+            z-index: 10;
+        }
+
+        #nav:checked~#ham {
+            display: none;
+        }
+
+        #nav:not(:checked)~#outside {
+            display: none;
+        }
+
+        label {
+            font-size: 3rem;
+        }
+
+        #outside {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9;
+        }
+
+        ul {
+            display: none;
+            position: fixed;
+            list-style: none;
+            top: 2rem;
+            right: 2rem;
+            background-color: $bg-color;
+            list-style: none;
+            box-shadow: 0 0.5rem 1rem;
+            width: 30rem;
+            padding: 1rem;
+            padding-top: 3rem;
+
+            label {
+                position: absolute;
                 top: 0;
-                left: 0;
-                z-index: 9;
-            }
-            ul{
-                display: none;
-                position: fixed;
-                top: 2rem;
-                right: 2rem;
-                background-color: $bg-color;
-                list-style: none;
-                box-shadow: 0 0.5rem 1rem;
-                width: 30rem;
-                padding: 1rem;
-                padding-top: 3rem;
-                label{
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    cursor: pointer;
-                }
-            }
-            li{
-                padding: 1rem 2rem;
-                letter-spacing: .2rem;
-                font-weight: 600;
-                transition: all .3s ease-out;
-                &:hover{
-                    background-color: $dark-text-active-color;
-                }
-            }
-            .active li {
-                background-color: $dark-text-active-color;
-                color: $bg-color;
+                right: 0;
+                cursor: pointer;
             }
         }
 
-        @include respond(tab-port) {
-            .navlink-desktop-container {
-                display: none;
+        li {
+            padding: 1rem 2rem;
+            letter-spacing: .2rem;
+            font-weight: 600;
+            transition: all .3s ease-out;
+
+            &:hover {
+                background-color: $dark-text-active-color;
             }
-            .navlink-mobile-container{
-                display: flex;
-            }
-            justify-content: space-between;
         }
+
+        .active li {
+            background-color: $dark-text-active-color;
+            color: $bg-color;
+        }
+    }
+
+    @include respond(tab-port) {
+        .navlink-desktop-container {
+            display: none;
+        }
+
+        .navlink-mobile-container {
+            display: flex;
+        }
+
+        justify-content: space-between;
     }
 }

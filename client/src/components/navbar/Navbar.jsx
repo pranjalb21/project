@@ -14,7 +14,7 @@ const Navbar = () => {
   }
   return (
     <header>
-      <div className="container">
+      <div className="navbar-container">
         <NavLink to={'/'} className={({ isActive, isPending }) =>
           isPending ? "inactive navlink" : isActive ? "inactive navlink" : " navlink"
         } >

@@ -1,40 +1,40 @@
 .footer-container{
-    position: absolute;
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.815);
+    align-self: baseline;
+    height: 7rem;
     width: 100%;
-    bottom: 0;
-    background-color: #181818;
-    height: 8rem;
-    color: $bg-color;
     text-align: center;
-    letter-spacing: 0.2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    color: $bg-color;
     font-size: 1.5rem;
-    margin-top: 5rem;
+    overflow: hidden;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-evenly;
+
+    .copy{
+        align-self: center;
+    }
+    
     .details{
-        margin-top: 0.2rem;
+        align-self: center;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-
+        justify-content: space-evenly;
         .links{
+            display: flex;
+            justify-content: space-evenly;
             font-size: 2rem;
-            .footer-link{
-                text-decoration: none;
-                color: $bg-color;
-            }
-            svg{
-                cursor: pointer;
 
+            svg{
+                color: rgb(77, 138, 15);
+                transition: all 0.2s;
                 &:hover{
-                    color: $dark-text-active-color;
-                    transform: translateY(0.2rem) scale(1.2)
+                    color: chartreuse;
+                    transform: translateY(0.2rem) scale(1.1);
                 }
             }
+
         }
-    }
-    .footer-link{
-        margin: 1rem;
     }
 }

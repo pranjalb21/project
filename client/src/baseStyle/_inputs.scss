@@ -1,80 +1,67 @@
-.input-text {
-    display: flex;
-    flex-direction: column;
-    font-size: 2rem;
-    color: $text-color;
+.input-area {
+    width: 100%;
+    margin-bottom: 1rem;
     margin-bottom: 3rem;
-
-    input {
+    position: relative;
+    input{
         height: 4rem;
+        width: 100%;
+        padding: 0.5rem 0.5rem;
         font-size: 2rem;
+        outline: none;
         background: transparent;
         border: none;
-        border-bottom: .2rem solid $text-color;
-        outline: none;
-        padding: 0 1rem;
-        transition: all .3s;
+        border-bottom: 0.2rem solid black;
+        &:focus{
+            border-bottom: 0.2rem solid rgb(5, 130, 30);
+        }
     }
-    textarea {
-        height: 4rem;
+    label{
+        position: absolute;
+        top: 0.6rem;
+        left: 0.5rem;
         font-size: 2rem;
-        background: transparent;
-        border: none;
-        border-bottom: .2rem solid $text-color;
-        outline: none;
-        padding: 0 1rem;
-        transition: all .3s;
-    }
-
-    input:focus {
-        border-bottom: .2rem solid rgb(113, 243, 113);
-    }
-    textarea:focus {
-        border-bottom: .2rem solid rgb(113, 243, 113);
-    }
-
-    label {
-        padding: 0 1rem;
-        opacity: 0;
-        transform: translateY(-3rem);
         transition: all 0.3s;
-        z-index: -1;
+        font-weight: 600;
+        letter-spacing: 0.15rem;
+    }
+    input:not([value=""])~label{
+        transform: translateY(-2rem);
+        font-size: 1.3rem;
+    }
+    input:focus~label{
+        transform: translateY(-2rem);
+        font-size: 1.3rem;
+        color: rgb(5, 130, 30);
     }
     textarea{
         height: 10rem;
-        background-color: rgba(95, 158, 160, 0.096);
+        width: 100%;
+        padding: 0.5rem 0.5rem;
+        font-size: 2rem;
+        outline: none;
         resize: none;
-     }
-    
-    input:focus {
-        &:invalid {
-            border-bottom: .2rem solid rgb(226, 48, 42);
+        background: transparent;
+        border: none;
+        border-bottom: 0.2rem solid black;
+        &:focus{
+            border-bottom: 0.2rem solid rgb(5, 130, 30);
         }
     }
-    textarea:focus {
-        &:invalid {
-            border-bottom: .2rem solid rgb(226, 48, 42);
-        }
+    textarea:focus~label{
+        transform: translateY(-2rem);
+        font-size: 1.3rem;
+        color: rgb(5, 130, 30);
     }
-    
-    input:not(:placeholder-shown) ~ label {
-        opacity: 1;
-        color: $text-color;
-        transform: translateY(0.7rem);
+    textarea:not(:placeholder-shown)~label{
+        transform: translateY(-2rem);
+        font-size: 1.3rem;
+    }
+    svg{
+        position: absolute;
+        top: 0.8rem;
+        right: 1.5rem;
+        cursor: pointer;
         font-size: 2rem;
     }
-    textarea:not(:placeholder-shown) ~ label {
-        opacity: 1;
-        color: $text-color;
-        transform: translateY(0.7rem);
-        font-size: 2rem;
-    }
-
-    input[type="file"]{
-        & + label{
-            z-index: 2;
-            border-bottom: 0.2rem solid $text-color;
-        }
-    }
-
 }

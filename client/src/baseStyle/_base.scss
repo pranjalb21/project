@@ -1,36 +1,40 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
+html, body {
     font-size: 62.5%;
     height: 100%;
-    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    
+    @include respond(tab-port){
+        font-size: 50%;
+    }
 }
-
-
-body {
+#root{
     min-height: 100%;
-    font-family: "Nunito", sans-serif;
-    min-width: 40rem;
-    position: relative;
-    box-sizing: inherit;
-    padding-bottom: 7rem;
-}
-
-.main-container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .background-image{
+        height: 100%;
+        width: 100%;
+        background-image: url('./background.jpg');
+        // background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(50%);
+        opacity: 0.8;
+        z-index: -10;
+        position: absolute;
+    }
 }
-.navlink{
-    text-decoration: none;
-    color: $text-color
-}
-
-section {
-    height: 70%;
+section{
+    min-height: 100%;
 }
 
 .toastBody {

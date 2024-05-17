@@ -10,7 +10,6 @@ import { ToastContainer } from 'react-toastify';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -25,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         transition:Zoom
         bodyClassName="toastBody"
       />
+      <App />
     </Provider>
   </React.StrictMode>,
 )

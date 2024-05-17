@@ -1,50 +1,37 @@
 .register-container {
-    width: 100vw;
-    height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 1rem 4rem;
-
-    .register-image {
-        width: 50%;
-        display: flex;
-        justify-content: right;
-        @media screen and (max-width: 900px) {
-            display: none;
-        }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1{
+        font-size: 4rem;
+        color: $bg-color;
+        filter: brightness(100%);
+        text-decoration: underline;
     }
-
-    .signup-img {
-        height: 60rem;
-        width: 60rem;
-        opacity: 0.8;
-    }
-
     .register-form {
         display: flex;
-        width: 50%;
-        justify-content: left;
-        padding: 4rem;
         flex-direction: column;
+        color: black;
+        justify-content: center;
+        align-items: baseline;
+        gap: 1rem;
+        width: 50rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        background-color: rgba(251, 255, 255, 0.6);
+        box-shadow: 0 1rem 10rem $text-color;
+        
+        
 
-        & h3{
-            color: $text-color;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            text-align: left;
-            margin-bottom: 1rem;
+        @include respond(tab-port) {
+            width: 45rem;
+            padding: 2rem;
+        }
+        @include respond(phone) {
+            width: 40rem;
+            padding: 1.5rem;
         }
     }
-
-    .form {
-        width: 40rem;
-        border: 0.2rem solid $text-color;
-        padding: 2rem;
-        border-radius: 1rem;
-        color: $text-color;
-        font-size: 2rem;
-        height: 45rem;
-    }
-
 }

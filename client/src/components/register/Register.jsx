@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectLogin } from '../../store/authSlice';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Register = () => {
     const URL = `http://localhost:5000/api/auth/signup`;
+    const [passVisible, setPassVisible] = useState(false);
     const selectedUser = useSelector(selectLogin);
     const navigate = useNavigate();
     const [userForm, setUserForm] = useState({
@@ -16,6 +18,9 @@ const Register = () => {
         password: '',
         confirmPassword: ''
     })
+    const handlePassVisible = () => {
+        setPassVisible(!passVisible);
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +30,7 @@ const Register = () => {
             email: userForm.email.trim().toLowerCase()
         })
 
-        if(userForm.password === userForm.confirmPassword){
+        if (userForm.password === userForm.confirmPassword) {
             try {
                 const result = await fetch(URL, {
                     method: 'POST',
@@ -54,7 +59,7 @@ const Register = () => {
             } catch (error) {
                 toast.error(`Something went wrong. Please try again.`)
             }
-        }else{
+        } else {
             toast.error(`Password and confirm password not matching.`);
         }
     }
@@ -75,72 +80,65 @@ const Register = () => {
 
     return (
         <div className='register-container'>
-            <div className="register-image">
-                <img src="./sign-up-form.svg" alt="Signup image" className='signup-img' />
-            </div>
-            <div className="register-form">
-                <h3>Register yourself</h3>
-                <form action="" className='form' onSubmit={handleSubmit}>
-                    <div className="input-text">
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder='Name'
-                            required
-                            onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
-                            value={userForm.name} />
-                        <label htmlFor="name">Name</label>
-                    </div>
-                    <div className="input-text">
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder='Email address'
-                            required
-                            onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
-                            value={userForm.email} />
-                        <label htmlFor="email">Email address</label>
-                    </div>
-                    <div className="input-text">
-                        <input
-                            type="text"
-                            name="phone"
-                            id="phone"
-                            placeholder='Phone number'
-                            required
-                            onChange={sanitizeNumber}
-                            value={userForm.phone} />
-                        <label htmlFor="phone">Phone number</label>
-                    </div>
-                    <div className="input-text">
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            placeholder='Password'
-                            required
-                            onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
-                            value={userForm.password} />
-                        <label htmlFor="password">Password</label>
-                    </div>
-                    <div className="input-text">
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            id="confirmPassword"
-                            placeholder='Confirm password'
-                            required
-                            onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
-                            value={userForm.confirmPassword} />
-                        <label htmlFor="confirmPassword">Confirm password</label>
-                    </div>
-                    <div className="input-text">
-                        <button type="submit" className='btn btn-primary'>Register</button>
-                    </div>
-                </form>
-            </div>
+            <h1 className='mb-md mt-lg'>Register yourself</h1>
+            <form action="" className='register-form' onSubmit={handleSubmit}>
+                <div className="input-area mt-sm">
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        required
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
+                        value={userForm.name} />
+                    <label htmlFor="name">Name</label>
+                </div>
+                <div className="input-area">
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
+                        value={userForm.email} />
+                    <label htmlFor="email">Email address</label>
+                </div>
+                <div className="input-area">
+                    <input
+                        type="text"
+                        name="phone"
+                        id="phone"
+                        required
+                        onChange={sanitizeNumber}
+                        value={userForm.phone} />
+                    <label htmlFor="phone">Phone number</label>
+                </div>
+                <div className="input-area">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
+                        value={userForm.password} />
+                    <label htmlFor="password">Password</label>
+                </div>
+                <div className="input-area">
+                    <input
+                        type={passVisible ? "text" : "password"}
+                        name="confirmPassword"
+                        id="confirmPassword"
+                        required
+                        onChange={(e) => setUserForm({ ...userForm, [e.target.name]: e.target.value })}
+                        value={userForm.confirmPassword} />
+                    <label htmlFor="confirmPassword">Confirm password</label>
+                    {passVisible ?
+                        <FaEyeSlash onClick={handlePassVisible} /> :
+                        <FaEye onClick={handlePassVisible} />}
+                </div>
+                <div className="input-button">
+                    <button type="submit" className='btn btn-primary'>Register</button>
+                </div>
+            </form>
         </div>
     )
 }
